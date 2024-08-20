@@ -1,6 +1,6 @@
 # Desafio Docker 2 
 
-###- Node.js com MySQL e Nginx Este repositório contém um projeto de exemplo que demonstra a configuração e execução de uma aplicação Node.js com banco de dados MySQL e um servidor Nginx como proxy reverso, todos utilizando Docker Compose.
+### Node.js com MySQL e Nginx Este repositório contém um projeto de exemplo que demonstra a configuração e execução de uma aplicação Node.js com banco de dados MySQL e um servidor Nginx como proxy reverso, todos utilizando Docker Compose.
 
 ## Pré-requisitos Docker Docker Compose Como executar Clone este repositório:
 
