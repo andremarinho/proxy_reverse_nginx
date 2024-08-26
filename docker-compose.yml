@@ -1,0 +1,48 @@
+version: '3.2'
+
+networks:
+  desafio:
+    driver: bridge
+
+
+services:
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: andrebezerramarinho/node_docker_desafio_2:latest
+    ports:
+      - 3000:3000
+    networks:
+      - desafio  
+    container_name: node_desafio
+    volumes:
+      - ./index.js:/usr/src/app/index.js:ro
+    depends_on:
+      - mysql
+
+  mysql:
+    image: andrebezerramarinho/mysql_docker_desafio_2:latest
+    ports:
+      - 3306:3306
+    networks:
+      - desafio  
+    container_name: mysqldesafio
+    environment:
+      MYSQL_ROOT_PASSWORD: RootPassword
+
+  reverse:
+    container_name: reverse
+    hostname: reverse
+    image: nginx:latest
+    ports:
+      - 8080:8080
+      - 443:443
+    networks:
+      - desafio   
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - node  
+
+               
